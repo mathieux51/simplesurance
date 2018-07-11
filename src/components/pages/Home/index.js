@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { setAnswer, setStage } from '../../../actions/questions'
+import { setAnswer } from '../../../actions/questions'
 import Input from '../../atoms/Input'
 import styles from './styles.module.css'
 
@@ -12,16 +12,20 @@ const dataTypeToInputType = {
 }
 
 const Home = props => {
-  const question = props.questions[props.stage] || { reply: [] }
+  const stage = props.stage || props.questions[0].id
+  const question = props.questions.find(x => x.id === stage)
 
   const isDisabled =
     question.type === 'boolean' ? false : !question.reply.length
-  const handleOnChange = val => props.setAnswer(question.id, val)
+  const handleOnChange = val => props.setAnswer(question.id, String(val))
   const handleOnClick = evt => {
     evt.preventDefault()
-    evt.stopPropagation()
+    if (question.type === 'boolean' && question.reply === '') {
+      console.log('Hi')
+      props.setAnswer(question.id, String(false))
+    }
     if (!isDisabled) {
-      props.setStage(props.stage + 1)
+      console.log('Hello')
       props.next(question.next)
     }
   }
@@ -61,7 +65,6 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   setAnswer: (...args) => dispatch(setAnswer(...args)),
-  setStage: stage => dispatch(setStage(stage)),
   next: questionId => {
     const action = questionId
       ? {

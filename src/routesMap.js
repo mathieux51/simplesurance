@@ -1,5 +1,5 @@
 import { redirect } from 'redux-first-router'
-import { setQuestions } from './actions/questions'
+import { setQuestions, setStage } from './actions/questions'
 import data from './data.json'
 
 const getAsyncData = (time, val) =>
@@ -17,18 +17,7 @@ export default {
       }
 
       const { questionId } = state.location.payload
-      const { stage, questions } = state.questions
-      const index =
-        questions.length === 0
-          ? 0
-          : questions.findIndex(x => x.id === questionId)
-
-      if (index > stage) {
-        return dispatch(redirect({
-          type: 'HOME',
-          payload: { questionId: questions[stage].questionId }
-        }))
-      }
+      dispatch(setStage(questionId))
     }
   },
   REPLY_LIST: 'replyList'

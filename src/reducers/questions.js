@@ -13,7 +13,7 @@ function updateObjectInArray(array, action) {
 }
 
 const initialState = {
-  stage: 0,
+  stage: '',
   questions: []
 }
 
@@ -23,6 +23,7 @@ export default (state = initialState, action = {}) => {
     case SET_QUESTIONS:
       return {
         ...state,
+        stage: action.questions[0].id,
         questions: action.questions
       }
     case SET_STAGE:

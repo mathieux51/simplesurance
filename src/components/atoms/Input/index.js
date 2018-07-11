@@ -5,6 +5,7 @@ import './styles.css'
 export default props =>
   props.type !== 'checkbox' ? (
     <input
+      required
       className='input-reset ba b--black-20 pa2 mb2 db w-100'
       type={props.type}
       value={props.value}
@@ -15,6 +16,6 @@ export default props =>
       className='ba pa2 mb2 db w-100'
       icons={false}
       defaultChecked={!!props.value}
-      onChange={props.handleOnChange}
+      onChange={evt => props.handleOnChange(evt.target.checked)}
     />
   )

@@ -31,7 +31,8 @@ To assess your skills we kindly ask you to implement a ReactJS web app that will
 
 In this project, it was important to make sure the code was simple and reusable. I wanted this app to have SSR, CCS chunks and a connected router. That's why I used a custom webpack config where the router is linked with Redux. There are still some features I would add if I had more time:
 
-- [ ] Write more tests
+- [ ] Write tests
+- [ ] Add ReduxForm
 - [ ] Integrate design according to provided UI
 - [ ] Prevent selection of future dates from date picker
 - [ ] Fix broken list
