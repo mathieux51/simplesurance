@@ -44,3 +44,4 @@ In this project, it was important to make sure the code was simple and reusable.
 - [ ] Update Loader
 - [ ] Add link to ReplyList `li`s
 - [ ] Click on native go back/forward browser buttons displays previous replies
+- [ ] Update browser compatibility
