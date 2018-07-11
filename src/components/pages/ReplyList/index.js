@@ -23,7 +23,7 @@ const ReplyList = props => (
                   </li>
                 ))}
           </ul>
-        </div>§
+        </div>
       </div>
     </article>
   </main>
