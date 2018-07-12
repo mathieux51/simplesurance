@@ -21,11 +21,9 @@ const Home = props => {
   const handleOnClick = evt => {
     evt.preventDefault()
     if (question.type === 'boolean' && question.reply === '') {
-      console.log('Hi')
       props.setAnswer(question.id, String(false))
     }
     if (!isDisabled) {
-      console.log('Hello')
       props.next(question.next)
     }
   }

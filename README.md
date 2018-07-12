@@ -33,6 +33,7 @@ In this project, it was important to make sure the code was simple and reusable.
 
 - [ ] Write tests
 - [ ] Add ReduxForm
+- [ ] Comment code
 - [ ] Integrate design according to provided UI
 - [ ] Prevent selection of future dates from date picker
 - [ ] Fix broken list
