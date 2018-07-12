@@ -29,7 +29,7 @@ To assess your skills we kindly ask you to implement a ReactJS web app that will
 
 ## What's next?
 
-In this project, it was important to make sure the code was simple and reusable. I wanted this app to have SSR, CCS chunks and a connected router. That's why I used a custom webpack config where the router is linked with Redux. There are still some features I would add if I had more time:
+In this project, it was important to make sure the code was simple and reusable. I wanted this app to have SSR, CCS chunks and a connected router. Perhaps SSR is overkill but I'm experimenting with this technology at the moment as I think it is very important for a [lot of projects](https://medium.com/walmartlabs/the-benefits-of-server-side-rendering-over-client-side-rendering-5d07ff2cefe8). I used a custom webpack config where the router is linked with Redux. There are still some features I would add if I had more time:
 
 - [ ] Write tests
 - [ ] Add ReduxForm
