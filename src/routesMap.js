@@ -15,7 +15,6 @@ export default {
         dispatch(setQuestions(questions))
         return
       }
-
       const { questionId } = state.location.payload
       dispatch(setStage(questionId))
     }

@@ -8,15 +8,25 @@ const dataTypeToInputType = {
   string: 'text',
   date: 'date',
   number: 'number',
-  boolean: 'checkbox'
+  boolean: 'checkbox',
+  email: 'email'
+}
+
+const getIsDisabled = ({ type, reply }) => {
+  if (type === 'boolean') return true
+  if (type === 'email') {
+    const pattern = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/ // eslint-disable-line
+    return !pattern.test(String(reply).toLowerCase())
+  }
+  return !reply.length
 }
 
 const Home = props => {
   const stage = props.stage || props.questions[0].id
   const question = props.questions.find(x => x.id === stage)
+  const isDisabled = getIsDisabled(question)
+  const type = dataTypeToInputType[question.type]
 
-  const isDisabled =
-    question.type === 'boolean' ? false : !question.reply.length
   const handleOnChange = val => props.setAnswer(question.id, String(val))
   const handleOnClick = evt => {
     evt.preventDefault()
@@ -27,6 +37,7 @@ const Home = props => {
       props.next(question.next)
     }
   }
+  console.log(isDisabled)
   return (
     <main>
       <article className='bg-white vh-100'>
@@ -36,7 +47,7 @@ const Home = props => {
               {question.text}
             </h1>
             <Input
-              type={dataTypeToInputType[question.type]}
+              type={type}
               value={question.reply}
               handleOnChange={handleOnChange}
             />
