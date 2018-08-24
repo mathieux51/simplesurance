@@ -1,6 +1,9 @@
 .isDisabled {
   color: currentColor;
-  cursor: not-allowed;
   opacity: 0.5;
   text-decoration: none;
+}
+
+.notAllowed:hover {
+  cursor: not-allowed;
 }

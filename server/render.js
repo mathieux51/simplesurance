@@ -1,12 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom/server'
 import { Provider } from 'react-redux'
-import { flushChunkNames } from 'react-universal-component/server'
+import { clearChunks, flushChunkNames } from 'react-universal-component/server'
 import flushChunks from 'webpack-flush-chunks'
 import configureStore from './configureStore'
 import App from '../src/components/App'
 
 export default ({ clientStats }) => async (req, res, next) => {
+  clearChunks()
   const store = await configureStore(req, res)
   if (!store) return // no store means redirect was already served
 

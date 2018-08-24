@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import cx from 'classnames'
 import { setAnswer } from '../../../actions/questions'
 import Input from '../../atoms/Input'
 import styles from './styles.module.css'
@@ -54,8 +55,8 @@ const Home = props => {
             <a
               role='link'
               tabIndex='0'
-              className={`f6 link dim ba ph3 pv2 mb2 dib black ${isDisabled &&
-                styles.isDisabled}`}
+              className={`f6 link dim ba ph3 pv2 mb2 dib black pointer ${isDisabled &&
+                cx(styles.isDisabled, styles.notAllowed)}`}
               onClick={handleOnClick}
             >
               Next
